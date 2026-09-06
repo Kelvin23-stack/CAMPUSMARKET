@@ -1,0 +1,67 @@
+/* =========================================================
+   CampusMarket — responsive.css
+   ========================================================= */
+
+@media (max-width: 1000px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .cat-grid { grid-template-columns: repeat(3, 1fr); }
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .curated-grid { grid-template-columns: repeat(2, 1fr); }
+  .dash-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 900px) {
+  .hero-inner h1 { font-size: 38px; }
+  .floater { display: none; }
+  .hero-columns { grid-template-columns: 1fr; text-align: center; }
+  .hero-columns .hero-inner { text-align: center; margin: 0 auto; }
+  .hero-columns .hero-ctas { justify-content: center; }
+  .hero-visual { height: 260px; margin-top: 20px; }
+  .deal-card-a, .deal-card-c { left: 4%; }
+  .deal-card-b { right: 4%; }
+  .dark-panel-body { grid-template-columns: 1fr; }
+  .testimonial-grid { grid-template-columns: 1fr; }
+  .why { grid-template-columns: 1fr; }
+  .why-panel { height: auto; padding: 28px; }
+  .modal-grid { grid-template-columns: 1fr; }
+  .form-split { grid-template-columns: 1fr !important; }
+  .form-grid { grid-template-columns: 1fr; }
+  .field-wide { grid-column: span 1; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .messages-layout { grid-template-columns: 1fr; height: auto; }
+  .conv-list { max-height: 240px; }
+}
+
+@media (max-width: 720px) {
+  .navbar { padding: 10px 14px; gap: 8px; }
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: flex; }
+  .nav-hide-mobile { display: none; }
+  .nav-right { margin-left: auto; gap: 6px; }
+  .btn-sm { padding: 7px 12px; font-size: 12.5px; }
+  body { padding-bottom: 84px; }
+  .bottom-nav { display: flex; }
+  .cat-grid { grid-template-columns: repeat(2, 1fr); }
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .search-bar { max-width: none; }
+  .chip-row { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px; -webkit-overflow-scrolling: touch; }
+  .chip-row::-webkit-scrollbar { display: none; }
+  .filter-bar { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px; }
+  .filter-bar::-webkit-scrollbar { display: none; }
+  .footer-top { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 520px) {
+  .logo-text { display: none; }
+  .hero { padding: 70px 18px 80px; }
+  .hero-inner h1 { font-size: 32px; }
+  .hero-visual { height: 220px; }
+  .deal-card-c { display: none; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .cat-grid { grid-template-columns: 1fr 1fr; }
+  .product-grid { grid-template-columns: 1fr; }
+  .dark-panel { padding: 30px 20px; }
+  .modal { padding: 20px; }
+}
+
+html, body { max-width: 100%; overflow-x: hidden; }

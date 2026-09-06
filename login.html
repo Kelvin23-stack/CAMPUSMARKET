@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign in — CampusMarket</title>
+<script>document.documentElement.setAttribute("data-theme", localStorage.getItem("cm_theme") || "light");</script>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+<style>
+  .auth-page { position: relative; min-height: 100vh; background: var(--dark); display: flex; align-items: center; justify-content: center; padding: 24px; overflow: hidden; }
+  .auth-top { position: absolute; top: 20px; left: 24px; right: 24px; display: flex; align-items: center; justify-content: space-between; z-index: 3; }
+  .auth-top .logo-text { color: #fff; }
+  .auth-card {
+    position: relative; z-index: 2; width: 100%; max-width: 400px; padding: 34px 30px;
+    border-radius: 24px; background: rgba(255,255,255,0.06); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.12); box-shadow: var(--shadow-md);
+  }
+  .auth-card h1 { color: #fff; font-size: 24px; margin-bottom: 6px; }
+  .auth-card .auth-sub { color: var(--dark-ink-soft); font-size: 13.5px; margin-bottom: 24px; }
+  .auth-google {
+    width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 12px; border-radius: 12px; background: #fff; color: #10190C; font-weight: 700; font-size: 13.5px;
+    border: none; margin-bottom: 20px; transition: transform 180ms var(--ease), box-shadow 180ms var(--ease);
+  }
+  .auth-google:hover { box-shadow: 0 6px 14px rgba(0,0,0,0.18); }
+  .auth-divider { display: flex; align-items: center; gap: 12px; color: var(--dark-ink-soft); font-size: 11.5px; margin-bottom: 20px; }
+  .auth-divider::before, .auth-divider::after { content: ""; flex: 1; height: 1px; background: var(--dark-border); }
+  .auth-card .field span { color: var(--dark-ink-soft); }
+  .auth-card .field input, .auth-card .field select { background: rgba(255,255,255,0.05); border-color: var(--dark-border); color: #fff; }
+  .auth-card .field input:focus, .auth-card .field select:focus { border-color: var(--primary); }
+  .auth-submit { width: 100%; margin-top: 6px; }
+  .auth-switch { text-align: center; font-size: 13px; color: var(--dark-ink-soft); margin-top: 20px; }
+  .auth-switch button { color: var(--primary); font-weight: 700; }
+  #signup-fields { display: none; }
+  .role-option {
+    display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 14px 10px;
+    border-radius: 12px; border: 1px solid var(--dark-border); background: rgba(255,255,255,0.04); color: var(--dark-ink-soft);
+  }
+  .role-option strong { color: #fff; font-size: 13.5px; }
+  .role-option span:last-child { font-size: 11px; }
+  .role-option.is-active { border-color: var(--primary); background: rgba(168, 255, 0,0.1); color: var(--primary); }
+  .role-option.is-active strong { color: var(--primary); }
+</style>
+</head>
+<body data-page="login">
+
+<div class="auth-page">
+
+  <div class="auth-top">
+    <a class="logo" href="index.html">
+      <span class="logo-mark"><span data-icon="shoppingbag" data-icon-size="15"></span></span>
+      <span class="logo-text">CampusMarket</span>
+    </a>
+    <button class="icon-btn" data-theme-toggle aria-label="Toggle theme" style="color:#fff"></button>
+  </div>
+
+  <div class="auth-card reveal-scale">
+    <h1 id="auth-title">Welcome back 👋</h1>
+    <p class="auth-sub" id="auth-sub">Sign in to continue to CampusMarket.</p>
+
+    <button class="auth-google" type="button" id="google-btn">
+      <span data-icon="chevronright" data-icon-size="0" style="display:none"></span>
+      <svg width="16" height="16" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.1 29.6 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.6 15.9 18.9 13 24 13c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.1 29.6 4 24 4c-7.6 0-14.2 4.3-17.7 10.7z"/><path fill="#4CAF50" d="M24 44c5.5 0 10.4-1.8 14.3-5l-6.6-5.4C29.6 35.4 26.9 36 24 36c-5.3 0-9.7-3.3-11.3-8l-6.6 5.1C9.7 39.6 16.3 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.3 4.3-4.2 5.7l6.6 5.4C40.9 36.6 44 30.9 44 24c0-1.3-.1-2.7-.4-3.5z"/></svg>
+      Continue with Google
+    </button>
+
+    <div class="auth-divider">OR</div>
+
+    <form id="auth-form" onsubmit="return false">
+      <div id="signup-fields">
+        <label class="field"><span>Full name</span><input type="text" id="su-name" placeholder="Your name"></label>
+        <label class="field"><span>University / campus</span><select id="su-campus"></select></label>
+        <label class="field"><span>I want to</span></label>
+        <div id="role-picker" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:-8px 0 14px">
+          <button type="button" class="role-option is-active" data-role="buy">
+            <span data-icon="search" data-icon-size="18"></span>
+            <strong>Buy</strong><span>Browse & shop</span>
+          </button>
+          <button type="button" class="role-option" data-role="sell">
+            <span data-icon="shoppingbag" data-icon-size="18"></span>
+            <strong>Sell</strong><span>List & earn</span>
+          </button>
+        </div>
+      </div>
+      <label class="field"><span>Email</span><input type="email" id="auth-email" placeholder="you@university.edu"></label>
+      <label class="field"><span>Password</span><input type="password" id="auth-password" placeholder="••••••••"></label>
+      <div id="confirm-field" style="display:none">
+        <label class="field"><span>Confirm password</span><input type="password" id="auth-confirm" placeholder="••••••••"></label>
+      </div>
+      <p class="form-error" id="auth-error"></p>
+      <button class="btn btn-primary auth-submit" id="auth-submit">Sign In</button>
+    </form>
+
+    <p class="auth-switch">
+      <span id="switch-prompt">Don't have an account?</span>
+      <button type="button" id="switch-btn">Create account</button>
+    </p>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config/supabaseClient.js"></script>
+<script src="js/services/authService.js"></script>
+<script src="js/services/universityService.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/animations.js"></script>
+<script>
+  universityService.getUniversities()
+    .then((unis) => {
+      document.getElementById("su-campus").innerHTML =
+        unis.map((u) => `<option value="${u.id}">${u.name}</option>`).join("");
+    })
+    .catch(() => {
+      // Supabase not configured yet / offline — fall back to the static list
+      // so the form is still usable while you finish setup.
+      document.getElementById("su-campus").innerHTML =
+        CM_CAMPUSES.map((c) => `<option value="">${c}</option>`).join("");
+    });
+  cmRenderIcons();
+
+  let isSignup = false;
+  let selectedRole = "buy";
+  const titleEl = document.getElementById("auth-title");
+  const subEl = document.getElementById("auth-sub");
+  const signupFields = document.getElementById("signup-fields");
+  const confirmField = document.getElementById("confirm-field");
+  const submitBtn = document.getElementById("auth-submit");
+  const switchPrompt = document.getElementById("switch-prompt");
+  const switchBtn = document.getElementById("switch-btn");
+
+  document.getElementById("role-picker").addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-role]");
+    if (!btn) return;
+    selectedRole = btn.dataset.role;
+    document.querySelectorAll(".role-option").forEach((b) => b.classList.toggle("is-active", b === btn));
+  });
+
+  switchBtn.addEventListener("click", () => {
+    isSignup = !isSignup;
+    titleEl.textContent = isSignup ? "Create your account" : "Welcome back 👋";
+    subEl.textContent = isSignup ? "Join CampusMarket with your student email." : "Sign in to continue to CampusMarket.";
+    signupFields.style.display = isSignup ? "block" : "none";
+    confirmField.style.display = isSignup ? "block" : "none";
+    submitBtn.textContent = isSignup ? "Create Account" : "Sign In";
+    switchPrompt.textContent = isSignup ? "Already have an account?" : "Don't have an account?";
+    switchBtn.textContent = isSignup ? "Sign in" : "Create account";
+    document.getElementById("auth-error").textContent = "";
+  });
+
+  document.getElementById("google-btn").addEventListener("click", async () => {
+    try {
+      await sb.auth.signInWithOAuth({ provider: "google" });
+    } catch (err) {
+      CM.toast("Google sign-in isn't set up in Supabase yet", "check");
+    }
+  });
+
+  function afterAuthRedirect() {
+    const params = new URLSearchParams(window.location.search);
+    const redirectTo = params.get("redirect");
+    return redirectTo
+      ? redirectTo
+      : isSignup ? (selectedRole === "sell" ? "create-listing.html" : "marketplace.html")
+      : "dashboard.html";
+  }
+
+  submitBtn.addEventListener("click", async () => {
+    const errorEl = document.getElementById("auth-error");
+    const email = document.getElementById("auth-email").value.trim();
+    const pw = document.getElementById("auth-password").value;
+    if (!email || !pw) { errorEl.textContent = "Enter your email and password."; return; }
+    if (isSignup && pw !== document.getElementById("auth-confirm").value) {
+      errorEl.textContent = "Passwords don't match."; return;
+    }
+    errorEl.textContent = "";
+    if (!sb) {
+      errorEl.textContent = "Can't reach the server right now — check your connection and try again.";
+      return;
+    }
+    submitBtn.disabled = true;
+    const originalLabel = submitBtn.textContent;
+    submitBtn.textContent = isSignup ? "Creating account…" : "Signing in…";
+
+    try {
+      if (isSignup) {
+        const fullName = document.getElementById("su-name").value.trim();
+        const universityId = document.getElementById("su-campus").value || null;
+        await authService.signUp(email, pw, { full_name: fullName, role: selectedRole, university_id: universityId });
+        CM.toast("Account created — welcome to CampusMarket!", "check");
+      } else {
+        await authService.signIn(email, pw);
+        CM.toast("Signed in successfully", "check");
+      }
+      // Keep the existing localStorage-based gate (CM.isLoggedIn/requireAuth in
+      // main.js) in sync until those are migrated to a real async session
+      // check — see the note in the chat response for this step.
+      CM.setLoggedIn(true, isSignup ? selectedRole : CM.getRole());
+      document.body.classList.add("is-leaving");
+      setTimeout(() => { window.location.href = afterAuthRedirect(); }, 500);
+    } catch (err) {
+      errorEl.textContent = err.message || "Something went wrong. Please try again.";
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+    }
+  });
+</script>
+</body>
+</html>

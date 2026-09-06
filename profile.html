@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile — CampusMarket</title>
+<script>document.documentElement.setAttribute("data-theme", localStorage.getItem("cm_theme") || "light");</script>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="profile">
+
+<div class="nav-wrap">
+  <header class="navbar">
+    <a class="logo" href="index.html">
+      <span class="logo-mark"><span data-icon="shoppingbag" data-icon-size="15"></span></span>
+      <span class="logo-text">CampusMarket</span>
+    </a>
+    <button class="mobile-menu-btn icon-btn" aria-label="Menu"><span data-icon="menu" data-icon-size="20"></span></button>
+    <nav class="nav-links">
+      <a href="index.html" data-nav="home">Home</a>
+      <a href="marketplace.html" data-nav="marketplace">Marketplace</a>
+      <a href="categories.html" data-nav="categories">Categories</a>
+      <a href="favorites.html" data-nav="favorites">Favorites</a>
+    </nav>
+    <div class="nav-right">
+      <a class="icon-btn nav-hide-mobile" href="marketplace.html" aria-label="Search"><span data-icon="search" data-icon-size="17"></span></a>
+      <button class="icon-btn nav-hide-mobile" id="notif-btn" aria-label="Notifications"><span data-icon="bell" data-icon-size="17"></span><span class="badge">3</span></button>
+      <a class="icon-btn nav-hide-mobile" href="favorites.html" aria-label="Favorites"><span data-icon="heart" data-icon-size="17"></span><span class="badge" data-fav-badge style="display:none"></span></a>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle theme"></button>
+      <a class="btn btn-primary btn-sm" href="create-listing.html"><span data-icon="plus" data-icon-size="15"></span> Sell</a>
+      <a href="profile.html"><span class="avatar" style="width:32px;height:32px;font-size:12px">YO</span></a>
+    </div>
+  </header>
+</div>
+
+<section class="section" style="padding-top:44px">
+  <div class="profile-header reveal">
+    <span class="avatar" style="width:76px;height:76px;font-size:26px">YO</span>
+    <div>
+      <h1 style="font-size:24px">You</h1>
+      <p style="margin:4px 0 0;color:var(--muted);font-size:13.5px">Lindale University &middot; Joined 2024</p>
+    </div>
+    <button class="btn btn-outline" style="margin-left:auto" id="edit-profile-btn">Edit profile</button>
+    <button class="btn btn-outline" id="logout-btn">Log out</button>
+  </div>
+
+  <div class="profile-tabs reveal">
+    <button class="profile-tab is-active" data-tab="listings">Listings</button>
+    <button class="profile-tab" data-tab="reviews">Reviews</button>
+    <button class="profile-tab" data-tab="about">About</button>
+  </div>
+
+  <div class="profile-panel is-active" id="tab-listings">
+    <div class="product-grid" id="profile-listings-grid"></div>
+  </div>
+
+  <div class="profile-panel" id="tab-reviews">
+    <div class="testimonial-grid">
+      <div class="testimonial-card glass">
+        <div class="stars">★★★★★</div>
+        <p>&ldquo;Quick reply, item was exactly as described. Would buy from again.&rdquo;</p>
+        <div class="testimonial-foot"><span class="avatar" style="width:34px;height:34px;font-size:12px">MR</span><div><strong>Maya R.</strong><span>Lindale University</span></div></div>
+      </div>
+      <div class="testimonial-card glass">
+        <div class="stars">★★★★★</div>
+        <p>&ldquo;Met on campus, super easy handoff. Highly recommend.&rdquo;</p>
+        <div class="testimonial-foot"><span class="avatar" style="width:34px;height:34px;font-size:12px">DK</span><div><strong>Devon K.</strong><span>Ashcombe State</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="profile-panel" id="tab-about" style="max-width:520px">
+    <label class="field"><span>Full name</span><input type="text" value="You"></label>
+    <label class="field"><span>University / campus</span>
+      <select id="about-campus"></select>
+    </label>
+    <label class="field"><span>Bio</span><textarea rows="4">Third-year student clearing out my dorm between semesters. Usually free to meet near the quad.</textarea></label>
+    <label class="field"><span>Contact preference</span>
+      <select><option>In-app messages</option><option>Email</option><option>Either</option></select>
+    </label>
+    <button class="btn btn-primary" id="save-about-btn">Save changes</button>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand"><span class="logo-mark"><span data-icon="shoppingbag" data-icon-size="14"></span></span><span>CampusMarket</span></div>
+        <p class="footer-desc">Empowering students to buy, sell, and connect within their own campus community.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Twitter"><span data-icon="twitter" data-icon-size="14"></span></a>
+          <a href="#" aria-label="Instagram"><span data-icon="instagram" data-icon-size="14"></span></a>
+          <a href="#" aria-label="Facebook"><span data-icon="facebook" data-icon-size="14"></span></a>
+        </div>
+      </div>
+      <div class="footer-col"><h5>Platform</h5><ul><li>Marketplace</li><li>Categories</li><li>Pricing</li><li>For Campuses</li></ul></div>
+      <div class="footer-col"><h5>Resources</h5><ul><li>Blog</li><li>Guides</li><li>Help Center</li><li>Community</li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul><li>About Us</li><li>Careers</li><li>Contact Us</li><li>Privacy Policy</li><li><a href="login.html">Log in</a></li></ul></div>
+    </div>
+    <p class="footer-bottom">&copy; 2026 CampusMarket. All rights reserved.</p>
+  </div>
+</footer>
+
+<nav class="bottom-nav">
+  <a href="index.html" data-nav="home"><span data-icon="home" data-icon-size="18"></span>Home</a>
+  <a href="marketplace.html" data-nav="marketplace"><span data-icon="search" data-icon-size="18"></span>Market</a>
+  <a href="create-listing.html"><span data-icon="plus" data-icon-size="18"></span>Sell</a>
+  <a href="favorites.html" data-nav="favorites"><span data-icon="heart" data-icon-size="18"></span>Saved</a>
+  <a href="profile.html" data-nav="profile"><span data-icon="users" data-icon-size="18"></span>Profile</a>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config/supabaseClient.js"></script>
+<script src="js/services/authService.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/marketplace.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/listing.js"></script>
+<script>
+  document.getElementById("about-campus").innerHTML = CM_CAMPUSES.map(c => `<option${c === "Lindale University" ? " selected" : ""}>${c}</option>`).join("");
+
+  document.querySelectorAll(".profile-tab").forEach((tab) => {
+    tab.addEventListener("click", () => {
+      document.querySelectorAll(".profile-tab").forEach((t) => t.classList.remove("is-active"));
+      document.querySelectorAll(".profile-panel").forEach((p) => p.classList.remove("is-active"));
+      tab.classList.add("is-active");
+      document.getElementById("tab-" + tab.dataset.tab).classList.add("is-active");
+    });
+  });
+
+  const mine = CM.getExtraListings();
+  const grid = document.getElementById("profile-listings-grid");
+  grid.innerHTML = mine.length
+    ? mine.map(cmProductCardHTML).join("")
+    : `<div class="empty-state" style="grid-column:1/-1">
+        <span class="empty-float">${CM.icon("package", 26, { strokeWidth: 1.4 })}</span>
+        <h3>You haven't listed anything yet</h3>
+        <p>Items you publish will show up here.</p>
+        <a class="btn btn-primary btn-sm" style="margin-top:14px" href="create-listing.html">Create a listing</a>
+      </div>`;
+
+  document.getElementById("save-about-btn").addEventListener("click", () => CM.toast("Profile updated", "check"));
+  document.getElementById("edit-profile-btn").addEventListener("click", () => {
+    document.querySelector('[data-tab="about"]').click();
+  });
+  document.getElementById("logout-btn").addEventListener("click", async () => {
+    try { await authService.signOut(); } catch (err) { /* session may already be gone — fine */ }
+    CM.logOut();
+    setTimeout(() => { window.location.href = "index.html"; }, 500);
+  });
+</script>
+</body>
+</html>

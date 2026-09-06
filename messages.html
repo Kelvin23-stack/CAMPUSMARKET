@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Messages — CampusMarket</title>
+<script>document.documentElement.setAttribute("data-theme", localStorage.getItem("cm_theme") || "light");</script>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="messages">
+
+<div class="nav-wrap">
+  <header class="navbar">
+    <a class="logo" href="index.html">
+      <span class="logo-mark"><span data-icon="shoppingbag" data-icon-size="15"></span></span>
+      <span class="logo-text">CampusMarket</span>
+    </a>
+    <button class="mobile-menu-btn icon-btn" aria-label="Menu"><span data-icon="menu" data-icon-size="20"></span></button>
+    <nav class="nav-links">
+      <a href="index.html" data-nav="home">Home</a>
+      <a href="marketplace.html" data-nav="marketplace">Marketplace</a>
+      <a href="categories.html" data-nav="categories">Categories</a>
+      <a href="favorites.html" data-nav="favorites">Favorites</a>
+    </nav>
+    <div class="nav-right">
+      <a class="icon-btn nav-hide-mobile" href="marketplace.html" aria-label="Search"><span data-icon="search" data-icon-size="17"></span></a>
+      <button class="icon-btn nav-hide-mobile" id="notif-btn" aria-label="Notifications"><span data-icon="bell" data-icon-size="17"></span><span class="badge">3</span></button>
+      <a class="icon-btn nav-hide-mobile" href="favorites.html" aria-label="Favorites"><span data-icon="heart" data-icon-size="17"></span><span class="badge" data-fav-badge style="display:none"></span></a>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle theme"></button>
+      <a class="btn btn-primary btn-sm" href="create-listing.html"><span data-icon="plus" data-icon-size="15"></span> Sell</a>
+      <a href="profile.html"><span class="avatar" style="width:32px;height:32px;font-size:12px">YO</span></a>
+    </div>
+  </header>
+</div>
+
+<section class="section" style="padding-top:44px">
+  <h1 class="market-title reveal">Messages</h1>
+  <div class="messages-layout glass reveal-scale">
+    <div class="conv-list" id="conv-list"></div>
+    <div class="chat-panel">
+      <div class="chat-header" id="chat-header"></div>
+      <div class="chat-body" id="chat-body"></div>
+      <div class="chat-input-row">
+        <input type="text" id="chat-input" placeholder="Type a message...">
+        <button class="btn btn-primary btn-icon" id="chat-send" aria-label="Send"><span data-icon="send" data-icon-size="15"></span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand"><span class="logo-mark"><span data-icon="shoppingbag" data-icon-size="14"></span></span><span>CampusMarket</span></div>
+        <p class="footer-desc">Empowering students to buy, sell, and connect within their own campus community.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Twitter"><span data-icon="twitter" data-icon-size="14"></span></a>
+          <a href="#" aria-label="Instagram"><span data-icon="instagram" data-icon-size="14"></span></a>
+          <a href="#" aria-label="Facebook"><span data-icon="facebook" data-icon-size="14"></span></a>
+        </div>
+      </div>
+      <div class="footer-col"><h5>Platform</h5><ul><li>Marketplace</li><li>Categories</li><li>Pricing</li><li>For Campuses</li></ul></div>
+      <div class="footer-col"><h5>Resources</h5><ul><li>Blog</li><li>Guides</li><li>Help Center</li><li>Community</li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul><li>About Us</li><li>Careers</li><li>Contact Us</li><li>Privacy Policy</li><li><a href="login.html">Log in</a></li></ul></div>
+    </div>
+    <p class="footer-bottom">&copy; 2026 CampusMarket. All rights reserved.</p>
+  </div>
+</footer>
+
+<nav class="bottom-nav">
+  <a href="index.html" data-nav="home"><span data-icon="home" data-icon-size="18"></span>Home</a>
+  <a href="marketplace.html" data-nav="marketplace"><span data-icon="search" data-icon-size="18"></span>Market</a>
+  <a href="create-listing.html"><span data-icon="plus" data-icon-size="18"></span>Sell</a>
+  <a href="favorites.html" data-nav="favorites"><span data-icon="heart" data-icon-size="18"></span>Saved</a>
+  <a href="profile.html" data-nav="profile"><span data-icon="users" data-icon-size="18"></span>Profile</a>
+</nav>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/marketplace.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/listing.js"></script>
+<script>
+  const CM_CONVERSATIONS = [
+    { id: 1, name: "Maya R.", listing: "TI-84 Plus CE graphing calculator", unread: true,
+      messages: [
+        { mine: false, text: "Hey! Is the calculator still available?" },
+        { mine: true, text: "Yep, still have it. Are you on campus today?" },
+        { mine: false, text: "I'm around the library until 4. Could meet near the entrance?" },
+      ] },
+    { id: 2, name: "Devon K.", listing: "IKEA MICKE desk, white", unread: true,
+      messages: [
+        { mine: false, text: "Would you take $35 for the desk?" },
+        { mine: true, text: "I could do $37 if you can pick up this weekend." },
+      ] },
+    { id: 3, name: "Priya S.", listing: "MacBook Air M1, 256GB", unread: false,
+      messages: [
+        { mine: true, text: "Thanks again for the laptop, works great!" },
+        { mine: false, text: "Glad to hear it 🎉" },
+      ] },
+    { id: 4, name: "Ella F.", listing: "Denim jacket, size M", unread: false,
+      messages: [
+        { mine: false, text: "Does this run true to size?" },
+        { mine: true, text: "Yep, standard M — fits true to size." },
+      ] },
+  ];
+
+  let cmActiveConv = CM_CONVERSATIONS[0].id;
+
+  function renderConvList() {
+    document.getElementById("conv-list").innerHTML = `
+      <div class="conv-search"><input type="text" placeholder="Search conversations"></div>
+      ${CM_CONVERSATIONS.map((c) => `
+        <div class="conv-item${c.id === cmActiveConv ? " is-active" : ""}" data-conv="${c.id}">
+          <span class="avatar" style="width:38px;height:38px;font-size:13px">${CM.initials(c.name)}</span>
+          <div class="conv-info">
+            <p>${c.name}</p>
+            <span>${c.listing}</span>
+          </div>
+          ${c.unread ? '<span class="conv-unread"></span>' : ""}
+        </div>`).join("")}`;
+  }
+
+  function renderChat() {
+    const conv = CM_CONVERSATIONS.find((c) => c.id === cmActiveConv);
+    document.getElementById("chat-header").innerHTML = `
+      <span class="avatar" style="width:34px;height:34px;font-size:12px">${CM.initials(conv.name)}</span>
+      <div><p>${conv.name}</p><span>${conv.listing}</span></div>`;
+    document.getElementById("chat-body").innerHTML = conv.messages
+      .map((m) => `<div class="bubble ${m.mine ? "mine" : "theirs"}">${m.text}</div>`).join("");
+    document.getElementById("chat-body").scrollTop = 999999;
+  }
+
+  document.getElementById("conv-list").addEventListener("click", (e) => {
+    const item = e.target.closest("[data-conv]");
+    if (!item) return;
+    cmActiveConv = Number(item.dataset.conv);
+    const conv = CM_CONVERSATIONS.find((c) => c.id === cmActiveConv);
+    conv.unread = false;
+    renderConvList();
+    renderChat();
+  });
+
+  function sendMessage() {
+    const input = document.getElementById("chat-input");
+    const text = input.value.trim();
+    if (!text) return;
+    const conv = CM_CONVERSATIONS.find((c) => c.id === cmActiveConv);
+    conv.messages.push({ mine: true, text });
+    input.value = "";
+    renderChat();
+    CM.toast("Message sent", "check");
+  }
+  document.getElementById("chat-send").addEventListener("click", sendMessage);
+  document.getElementById("chat-input").addEventListener("keydown", (e) => { if (e.key === "Enter") sendMessage(); });
+
+  renderConvList();
+  renderChat();
+</script>
+</body>
+</html>

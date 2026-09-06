@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CampusMarket — Your Campus. Your Marketplace.</title>
+<script>document.documentElement.setAttribute("data-theme", localStorage.getItem("cm_theme") || "light");</script>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="home">
+
+<div class="nav-wrap">
+  <header class="navbar">
+    <a class="logo" href="index.html">
+      <span class="logo-mark"><span data-icon="shoppingbag" data-icon-size="15"></span></span>
+      <span class="logo-text">CampusMarket</span>
+    </a>
+    <button class="mobile-menu-btn icon-btn" aria-label="Menu"><span data-icon="menu" data-icon-size="20"></span></button>
+    <nav class="nav-links">
+      <a href="index.html" data-nav="home">Home</a>
+      <a href="marketplace.html" data-nav="marketplace">Marketplace</a>
+      <a href="categories.html" data-nav="categories">Categories</a>
+      <a href="favorites.html" data-nav="favorites">Favorites</a>
+    </nav>
+    <div class="nav-right">
+      <a class="icon-btn nav-hide-mobile" href="marketplace.html" aria-label="Search"><span data-icon="search" data-icon-size="17"></span></a>
+      <button class="icon-btn nav-hide-mobile" id="notif-btn" aria-label="Notifications"><span data-icon="bell" data-icon-size="17"></span><span class="badge">3</span></button>
+      <a class="icon-btn nav-hide-mobile" href="favorites.html" aria-label="Favorites"><span data-icon="heart" data-icon-size="17"></span><span class="badge" data-fav-badge style="display:none"></span></a>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle theme"></button>
+      <a class="btn btn-primary btn-sm" href="create-listing.html"><span data-icon="plus" data-icon-size="15"></span> Sell</a>
+      <a href="profile.html"><span class="avatar" style="width:32px;height:32px;font-size:12px">YO</span></a>
+    </div>
+  </header>
+</div>
+
+<section class="hero">
+  <div class="hero-columns">
+    <div class="hero-inner">
+      <span class="eyebrow-pill">Buy. Sell. Connect.</span>
+      <h1>Your Campus.<br>Your Marketplace.</h1>
+      <p class="hero-sub">Buy what you need. Sell what you don't. Discover great deals from students around you.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary btn-lg" href="marketplace.html">Explore Marketplace <span class="btn-arrow" data-icon="arrowright" data-icon-size="16"></span></a>
+        <a class="btn btn-glass btn-lg" href="sell.html"><span class="btn-plus" data-icon="plus" data-icon-size="15"></span> Start Selling</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-illustration">
+        <svg viewBox="0 0 200 240" width="168" height="202">
+          <path d="M70 42 A30 30 0 01130 42 L130 28 A30 30 0 0070 28 Z" fill="var(--dark)"/>
+          <circle cx="100" cy="52" r="30" fill="var(--secondary)"/>
+          <path d="M38 240 C38 168 58 138 100 138 C142 138 162 168 162 240 Z" fill="var(--secondary)"/>
+          <g transform="rotate(16 133 172)">
+            <rect x="116" y="146" width="34" height="54" rx="9" fill="var(--primary)"/>
+            <circle cx="133" cy="188" r="2" fill="var(--on-primary)"/>
+          </g>
+          <g transform="translate(44,152)">
+            <path d="M8 16 v-8 a9 9 0 0118 0 v8" stroke="var(--dark)" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <rect x="0" y="16" width="34" height="38" rx="5" fill="var(--primary)"/>
+            <rect x="0" y="30" width="34" height="4" fill="var(--dark)" opacity="0.18"/>
+          </g>
+        </svg>
+      </div>
+      <div class="deal-card glass deal-card-a">
+        <span class="deal-label">🔥 Trending</span>
+        Wireless Headphones<br><span class="deal-price">₦25,000</span>
+      </div>
+      <div class="deal-card glass deal-card-b">
+        <span class="deal-label">✨ New Listing</span>
+      </div>
+      <div class="deal-card glass deal-card-c">
+        <span class="deal-label">❤️ 124 people saved this</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section trust reveal">
+  <p class="trust-label">Trusted by students at</p>
+  <div class="trust-row" id="trust-row"></div>
+</section>
+
+<section class="section">
+  <h2 class="heading-center reveal">Your campus, by the numbers</h2>
+  <p class="sub-center reveal">A snapshot of activity across every school on CampusMarket.</p>
+  <div class="stats-grid">
+    <div class="stat-card glass reveal-scale">
+      <span class="stat-glow"></span>
+      <span class="stat-icon" data-icon="users" data-icon-size="20"></span>
+      <strong><span data-count-target="1240" data-count-suffix="+">0</span></strong>
+      <span class="stat-label">Active listings</span>
+    </div>
+    <div class="stat-card glass reveal-scale" style="transition-delay:80ms">
+      <span class="stat-glow"></span>
+      <span class="stat-icon" data-icon="award" data-icon-size="20"></span>
+      <strong><span data-count-target="3800" data-count-suffix="+">0</span></strong>
+      <span class="stat-label">Verified sellers</span>
+    </div>
+    <div class="stat-card glass reveal-scale" style="transition-delay:160ms">
+      <span class="stat-glow"></span>
+      <span class="stat-icon" data-icon="trendingup" data-icon-size="20"></span>
+      <strong><span data-count-target="9600" data-count-suffix="+">0</span></strong>
+      <span class="stat-label">Items sold</span>
+    </div>
+    <div class="stat-card glass reveal-scale" style="transition-delay:240ms">
+      <span class="stat-glow"></span>
+      <span class="stat-icon" data-icon="star" data-icon-size="20"></span>
+      <strong>4.8 / 5</strong>
+      <span class="stat-label">Average seller rating</span>
+    </div>
+  </div>
+</section>
+
+<section class="dark-panel-wrap" id="categories">
+  <div class="dark-panel reveal-scale">
+    <div class="dark-panel-head">
+      <span class="eyebrow-pill on-dark">Choose your path</span>
+      <h2>Find what you need</h2>
+      <p>From lecture-hall leftovers to move-out furniture, browse by category.</p>
+    </div>
+    <div class="dark-panel-body">
+      <div class="cat-tabs" id="cat-tabs"></div>
+      <div class="cat-preview" id="cat-preview"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="heading-center heading-left reveal">Popular listings</h2>
+  <p class="sub-center sub-left reveal">Explore what students on your campus are trading right now.</p>
+  <div class="product-grid" id="home-product-grid"></div>
+  <div class="view-all-wrap reveal">
+    <a class="btn btn-outline" href="marketplace.html">View all listings <span data-icon="arrowright" data-icon-size="15"></span></a>
+  </div>
+</section>
+
+<section class="why-wrap">
+  <div class="why">
+    <div class="why-panel reveal-left">
+      <span data-icon="shoppingbag" data-icon-size="30" data-icon-fill="none" style="color:var(--on-secondary)"></span>
+      <p>Built for one campus at a time, not the whole internet.</p>
+    </div>
+    <div class="why-right reveal-right">
+      <h2>Why CampusMarket?</h2>
+      <ul class="why-list">
+        <li><span class="why-ic" data-icon="mappin" data-icon-size="16"></span><div><strong>Campus-focused</strong><span>Listings are grouped by school, so pickup is always nearby.</span></div></li>
+        <li><span class="why-ic" data-icon="plus" data-icon-size="16"></span><div><strong>Easy to sell</strong><span>Post a listing in under two minutes, no fees.</span></div></li>
+        <li><span class="why-ic" data-icon="search" data-icon-size="16"></span><div><strong>Easy to discover</strong><span>Filter by category, price, and condition to find things fast.</span></div></li>
+        <li><span class="why-ic" data-icon="users" data-icon-size="16"></span><div><strong>Community-driven</strong><span>Every seller signs up with a verified student email.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <span class="eyebrow-pill centered reveal">Testimonials</span>
+  <h2 class="heading-center reveal">Loved by students everywhere</h2>
+  <p class="sub-center reveal">See what people are saying about buying and selling on CampusMarket.</p>
+  <div class="testimonial-grid" id="testimonial-grid"></div>
+</section>
+
+<section class="cta-banner reveal-scale">
+  <span data-icon="shoppingbag" data-icon-size="30" style="color:var(--on-secondary)"></span>
+  <h2>Ready to clear out your dorm room?</h2>
+  <p>List your first item and reach students on your campus today.</p>
+  <a class="btn btn-white btn-lg" href="create-listing.html">Get started, it's free</a>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand"><span class="logo-mark"><span data-icon="shoppingbag" data-icon-size="14"></span></span><span>CampusMarket</span></div>
+        <p class="footer-desc">Empowering students to buy, sell, and connect within their own campus community.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Twitter"><span data-icon="twitter" data-icon-size="14"></span></a>
+          <a href="#" aria-label="Instagram"><span data-icon="instagram" data-icon-size="14"></span></a>
+          <a href="#" aria-label="Facebook"><span data-icon="facebook" data-icon-size="14"></span></a>
+        </div>
+      </div>
+      <div class="footer-col"><h5>Platform</h5><ul><li>Marketplace</li><li>Categories</li><li>Pricing</li><li>For Campuses</li></ul></div>
+      <div class="footer-col"><h5>Resources</h5><ul><li>Blog</li><li>Guides</li><li>Help Center</li><li>Community</li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul><li>About Us</li><li>Careers</li><li>Contact Us</li><li>Privacy Policy</li><li><a href="login.html">Log in</a></li></ul></div>
+    </div>
+    <p class="footer-bottom">&copy; 2026 CampusMarket. All rights reserved.</p>
+  </div>
+</footer>
+
+<nav class="bottom-nav">
+  <a href="index.html" data-nav="home"><span data-icon="home" data-icon-size="18"></span>Home</a>
+  <a href="marketplace.html" data-nav="marketplace"><span data-icon="search" data-icon-size="18"></span>Market</a>
+  <a href="create-listing.html"><span data-icon="plus" data-icon-size="18"></span>Sell</a>
+  <a href="favorites.html" data-nav="favorites"><span data-icon="heart" data-icon-size="18"></span>Saved</a>
+  <a href="profile.html" data-nav="profile"><span data-icon="users" data-icon-size="18"></span>Profile</a>
+</nav>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/marketplace.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/listing.js"></script>
+<script>
+  document.getElementById("trust-row").innerHTML = CM_CAMPUSES.map(c => `<span>${c}</span>`).join("");
+
+  document.getElementById("home-product-grid").innerHTML = CM.getAllProducts().slice(0, 6)
+    .map((p, i) => cmProductCardHTML(p).replace('class="product-card', `style="transition-delay:${i*70}ms" class="product-card`)).join("");
+
+  document.getElementById("testimonial-grid").innerHTML = CM_TESTIMONIALS.map(t => `
+    <div class="testimonial-card glass reveal-scale">
+      <div class="stars">${[1,2,3,4,5].map(i => CM.icon("star", 13, { fill: i <= t.rating ? "var(--primary)" : "var(--border)", strokeWidth: 0 })).join("")}</div>
+      <p>&ldquo;${t.quote}&rdquo;</p>
+      <div class="testimonial-foot">
+        <span class="avatar" style="width:34px;height:34px;font-size:12px">${CM.initials(t.name)}</span>
+        <div><strong>${t.name}</strong><span>${t.role}</span></div>
+      </div>
+    </div>`).join("");
+
+  // dark category panel: tabs + live preview
+  let cmActiveCat = CM_CATEGORIES[0].id;
+  function cmRenderCatPanel() {
+    const tabsRoot = document.getElementById("cat-tabs");
+    const previewRoot = document.getElementById("cat-preview");
+    tabsRoot.innerHTML = CM_CATEGORIES.slice(0, 6).map(c => `
+      <button class="cat-tab${c.id === cmActiveCat ? " is-active" : ""}" data-cat-tab="${c.id}">
+        ${CM.icon(c.icon, 16, { strokeWidth: 1.8 })}<span>${c.name}</span><span class="cat-tab-count">${c.count}</span>
+      </button>`).join("");
+    const active = CM_CATEGORIES.find(c => c.id === cmActiveCat);
+    previewRoot.innerHTML = `
+      <span style="color:var(--primary)">${CM.icon(active.icon, 26, { strokeWidth: 1.5 })}</span>
+      <h3>${active.name}</h3>
+      <p>${active.blurb}</p>
+      <a class="btn btn-primary btn-sm" href="marketplace.html?category=${active.id}">Browse all categories ${CM.icon("chevronright", 14)}</a>`;
+  }
+  document.getElementById("cat-tabs").addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-cat-tab]");
+    if (!btn) return;
+    cmActiveCat = btn.dataset.catTab;
+    cmRenderCatPanel();
+  });
+  cmRenderCatPanel();
+</script>
+</body>
+</html>
